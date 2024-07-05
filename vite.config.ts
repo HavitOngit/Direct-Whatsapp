@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { ManifestOptions, VitePWA } from 'vite-plugin-pwa'
+import path from 'path'
 
 //@ts-ignore
 const manifest: ManifestOptions = {
@@ -46,4 +47,9 @@ export default defineConfig({
 
   })
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 })

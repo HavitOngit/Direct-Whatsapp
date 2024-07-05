@@ -1,6 +1,9 @@
 import { useState } from 'react'
 
-import './App.css'
+
+import { Button } from './components/ui/button';
+import { Input } from './components/ui/input';
+import { Label } from './components/ui/label';
 
 function quikChat(phoneNumber: string) {
   if (phoneNumber.length === 10) {
@@ -31,22 +34,29 @@ function App() {
 
   return (
     <>
-      <h1>Quick Chat</h1>
 
-      <form onSubmit={handelSubmit} style={{ display: 'flex', flexDirection: 'column', maxWidth: '300px', margin: '0 auto' }}>
-        <label htmlFor="phoneNumber">Enter your phone number:</label>
-        <input
-          type="number"
-          id="phoneNumber"
-          value={inputNumber}
-          onChange={(e) => setInputNumber(e.target.value)}
-          style={{ padding: '8px', marginBottom: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
-        />
-        <InputErrors inputNumber={inputNumber} />
-        <button type="submit" style={{ padding: '10px', borderRadius: '4px', backgroundColor: '#4CAF50', color: 'white', border: 'none', cursor: 'pointer' }}>
-          Chat
-        </button>
+      <a href='/help.html'>Help</a>
+
+
+
+      <form onSubmit={handelSubmit} className='flex flex-col gap-4'>
+        <div>
+
+          <Label htmlFor="phoneNumber">Mobile Number</Label>
+          <Input
+            placeholder='Enter Mobile Number'
+            type="number"
+            id="phoneNumber"
+            value={inputNumber}
+            onChange={(e) => setInputNumber(e.target.value)}
+            style={{ padding: '8px', marginBottom: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
+          />
+          <InputErrors inputNumber={inputNumber} />
+        </div>
+        <Button type="submit">Chat</Button>
       </form>
+
+
     </>
   )
 }
