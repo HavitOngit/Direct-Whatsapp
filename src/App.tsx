@@ -17,9 +17,6 @@ function quikChat(phoneNumber: string) {
 
 }
 
-function cameraPrompt() {
-
-}
 
 function InputErrors({ inputNumber }: { inputNumber: string }) {
   if (inputNumber.length === 10) {

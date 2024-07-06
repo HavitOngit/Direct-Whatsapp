@@ -1,9 +1,9 @@
+import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
-import { Button } from "./components/ui/button";
 import App from "./App";
+import { Button } from "./components/ui/button";
 import Help from "./Help";
 import NotFound from "./NotFound";
-import { HomeIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import logo from "/logo.svg";
 
 function Croute({ urlPath }: { urlPath: string }) {
