@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react-swc'
 import { ManifestOptions, VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
 
-//@ts-ignore
-const manifest: ManifestOptions = {
+
+const manifest: Partial<ManifestOptions> = {
   name: 'Quick Chat',
   short_name: 'Quick Chat',
   description: 'Direct Chat to any Whatsapp Number',
