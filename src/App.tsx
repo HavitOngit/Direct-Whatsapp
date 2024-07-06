@@ -5,12 +5,19 @@ import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 
 import { CameraIcon } from '@radix-ui/react-icons';
+import WbCam from './Camera';
+
+
 
 function quikChat(phoneNumber: string) {
   if (phoneNumber.length === 10) {
     window.location.replace(`https://wa.me/91${phoneNumber}`)
   }
 
+
+}
+
+function cameraPrompt() {
 
 }
 
@@ -68,7 +75,7 @@ function App() {
           <Button type="submit" >Chat</Button>
         </form>
 
-
+        <WbCam></WbCam>
       </div>
 
     </>
