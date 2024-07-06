@@ -9,6 +9,9 @@
     }
   ],
   "compilerOptions": {
+    "types": [
+      "vite-plugin-pwa/client"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": [

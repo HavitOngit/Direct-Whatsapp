@@ -4,18 +4,19 @@ import { Button } from "./components/ui/button";
 import { createWorker } from 'tesseract.js';
 
 
-async function useOcr(image: HTMLImageElement, setOcrResult: React.Dispatch<React.SetStateAction<string>>) {
-    const worker = await createWorker('eng', 1, {
-        logger: m => { console.log(m) }
-    });
-    const ret = await worker.recognize(image);
-    if (ret.data.text.length > 0) {
-        setOcrResult(ret.data.text);
-    }
-    console.log(ret.data.text);
-    await worker.terminate();
+// async function useOcr(image: HTMLImageElement, setOcrResult: React.Dispatch<React.SetStateAction<string>>) {
+//     const worker = await createWorker('eng', 1, {
+//         logger: m => { console.log(m) }
+//     });
+//     const ret = await worker.recognize(image);
+//     if (ret.data.text.length > 0) {
+//         setOcrResult(ret.data.text);
+//     }
+//     console.log(ret.data.text);
+//     await worker.terminate();
 
-}
+// }
+
 /**
  * useOCR hook to extract text from image.
  * 
