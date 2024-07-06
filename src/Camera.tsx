@@ -86,7 +86,7 @@ const Webcam = () => {
             <div className="object-cover m-6">
                 <img src={image} alt="captured" className={`object-cover animate-pulse ${!showImage ? 'hidden' : ''} `} />
                 <div className={`${showImage ? 'hidden' : ''}`}>
-                    <Camera ref={camera} aspectRatio={8 / 2} errorMessages={{
+                    <Camera ref={camera} facingMode="environment" aspectRatio={8 / 2} errorMessages={{
                         noCameraAccessible: "No camera device accessible. Please connect your camera Company and try again.",
                         permissionDenied: "Permission denied. Please refresh and give permission to access the camera.",
                         switchCamera: "Switch camera failed. Please try again.",
