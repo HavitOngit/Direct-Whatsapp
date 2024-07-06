@@ -6,7 +6,9 @@ import Help from "./Help";
 import NotFound from "./NotFound";
 import logo from "/logo.svg";
 
+
 function Croute({ urlPath }: { urlPath: string }) {
+    history.pushState({}, '', urlPath);
     switch (urlPath) {
         case '/':
             return <App />;
@@ -20,6 +22,10 @@ function Croute({ urlPath }: { urlPath: string }) {
 
 export default function Routes() {
     const [urlPath, seturlPath] = useState('/');
+    addEventListener('popstate', () => {
+        console.log(location.pathname + ' popstate');
+        seturlPath(location.pathname);
+    });
 
     return (
         <>

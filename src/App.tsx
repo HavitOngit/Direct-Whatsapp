@@ -1,11 +1,12 @@
 import { useState } from 'react'
 
-
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
 
 import { CameraIcon } from '@radix-ui/react-icons';
-import WbCam from './Camera';
+import Webcam from './Camera';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './components/ui/dialog';
+
 
 
 
@@ -18,6 +19,8 @@ function quikChat(phoneNumber: string) {
 }
 
 
+
+
 function InputErrors({ inputNumber }: { inputNumber: string }) {
   if (inputNumber.length === 10) {
     return <p className='text-green-600 '>valid✅</p>;
@@ -26,6 +29,29 @@ function InputErrors({ inputNumber }: { inputNumber: string }) {
   } else {
     return null;
   }
+}
+
+
+function CamaraPrompt() {
+  return (
+    <Dialog>
+      <DialogTrigger>
+        <Button variant={'outline'}>
+
+          <CameraIcon className='w-6 h-6' />
+        </Button>
+      </DialogTrigger>
+      <DialogHeader className='hidden'>
+
+        <DialogTitle>Scanner</DialogTitle>
+      </DialogHeader>
+      <DialogDescription className='hidden'>Sacnner Diloag</DialogDescription>
+      <DialogContent>
+        <Webcam></Webcam>
+      </DialogContent>
+
+    </Dialog>
+  )
 }
 
 function App() {
@@ -58,10 +84,7 @@ function App() {
                 onChange={(e) => setInputNumber(e.target.value)}
 
               />
-              <Button variant={'ghost'}>
-
-                <CameraIcon className='w-6 h-6' />
-              </Button>
+              <CamaraPrompt></CamaraPrompt>
             </div>
 
             <div className='justify-end flex'>
@@ -72,7 +95,7 @@ function App() {
           <Button type="submit" >Chat</Button>
         </form>
 
-        <WbCam></WbCam>
+
       </div>
 
     </>
