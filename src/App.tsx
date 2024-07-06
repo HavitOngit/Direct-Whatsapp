@@ -3,7 +3,8 @@ import { useState } from 'react'
 
 import { Button } from './components/ui/button';
 import { Input } from './components/ui/input';
-import { Label } from './components/ui/label';
+
+import { CameraIcon } from '@radix-ui/react-icons';
 
 function quikChat(phoneNumber: string) {
   if (phoneNumber.length === 10) {
@@ -15,7 +16,7 @@ function quikChat(phoneNumber: string) {
 
 function InputErrors({ inputNumber }: { inputNumber: string }) {
   if (inputNumber.length === 10) {
-    return <p style={{ color: 'green' }}>Valid Number</p>;
+    return <p className='text-green-600 '>valid✅</p>;
   } else if (inputNumber.length > 0) {
     return <p style={{ color: 'red' }}>Invalid Number</p>;
   } else {
@@ -35,27 +36,40 @@ function App() {
   return (
     <>
 
-      <a href='/help.html'>Help</a>
 
 
+      <div className='flex h-[90vh] justify-center items-center'>
 
-      <form onSubmit={handelSubmit} className='flex flex-col gap-4'>
-        <div>
 
-          <Label htmlFor="phoneNumber">Mobile Number</Label>
-          <Input
-            placeholder='Enter Mobile Number'
-            type="number"
-            id="phoneNumber"
-            value={inputNumber}
-            onChange={(e) => setInputNumber(e.target.value)}
-            style={{ padding: '8px', marginBottom: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
-          />
-          <InputErrors inputNumber={inputNumber} />
-        </div>
-        <Button type="submit">Chat</Button>
-      </form>
+        <form onSubmit={handelSubmit} className='flex flex-col gap-5'>
+          <div>
 
+            <div className='flex'>
+
+              <Input className='w-72'
+                placeholder='Enter Mobile Number'
+                type="number"
+                id="phoneNumber"
+                value={inputNumber}
+                onChange={(e) => setInputNumber(e.target.value)}
+
+              />
+              <Button variant={'ghost'}>
+
+                <CameraIcon className='w-6 h-6' />
+              </Button>
+            </div>
+
+            <div className='justify-end flex'>
+
+              <InputErrors inputNumber={inputNumber} />
+            </div>
+          </div>
+          <Button type="submit" >Chat</Button>
+        </form>
+
+
+      </div>
 
     </>
   )
